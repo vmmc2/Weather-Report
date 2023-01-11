@@ -1,9 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-
-    </head>
+<%- include("partials/header") -%>
     <body>
-        
+        <h1> Weather Report </h1>
+
+        <form action="/city" method="POST">
+            <input class="form-control" name="city" placeholder="City Name" type="text">
+            <select class="form-select" name="units">
+                <option value="metric"> Celsius </option>
+                <option value="imperial"> Farenheit </option>
+            </select>
+            <button class="btn btn-primary" type="submit"> Search </button>
+        </form>
     </body>
-</html>
+<%- include("partials/footer") -%>
