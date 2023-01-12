@@ -17,7 +17,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/city", function(req, res){
-    res.render("city.ejs");
+    res.render("city");
 });
 
 app.post("/city", function(req, res){
@@ -42,17 +42,20 @@ app.post("/city", function(req, res){
                 }
                 response.on("data", function(data){
                     const weatherData = JSON.parse(data);
-                    console.log(weatherData);
 
-                    const cityName = weatherData["name"];
-                    const countryName = weatherData["sys"]["country"];
-                    const currentTemp = weatherData["main"]["temp"];
-                    const feelsLike = weather["main"]["feels_like"];
-                    const minTemp = weatherData["main"]["temp_min"];
-                    const maxTemp = weatherData["main"]["temp_max"];
-                    const humidity = weatherData["main"]["humidity"];
-                    const weatherIcon = weatherData["weather"][0]["icon"];
-                    const weatherDescription = weatherData["weather"][0]["main"];
+                    const weatherReport = {
+                        "cityName" : weatherData["name"],
+                        "countryName" : weatherData["sys"]["country"],
+                        "currentTemp" : weatherData["main"]["temp"],
+                        "feelsLike" : weatherData["main"]["feels_like"],
+                        "minTemp" : weatherData["main"]["temp_min"],
+                        "maxTemp" : weatherData["main"]["temp_max"],
+                        "humidity" : weatherData["main"]["humidity"],
+                        "weatherIcon" : weatherData["weather"][0]["icon"],
+                        "weatherDescription" : weatherData["weather"][0]["main"]
+                    };
+
+                    res.render("city", weatherReport);
                 });
             });
 
