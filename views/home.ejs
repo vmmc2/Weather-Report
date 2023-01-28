@@ -2,13 +2,24 @@
     <body>
         <h1> Weather Report </h1>
 
-        <form action="/city" method="POST">
-            <input class="form-control" name="city" placeholder="City Name" type="text">
-            <select class="form-select" name="units">
-                <option value="metric"> Celsius </option>
-                <option value="imperial"> Farenheit </option>
-            </select>
-            <button class="btn btn-primary" type="submit"> Search </button>
-        </form>
+        <div class="form-component">
+            <form action="/city" method="POST">
+                <div class="form-table">
+                    <div class="form-cell">
+                        <input class="form-control" name="city" placeholder="City Name" type="text">
+                    </div>
+                    <div class="form-cell">
+                        <select class="form-select" name="units">
+                            <option value="metric"> Celsius </option>
+                            <option value="imperial"> Farenheit </option>
+                        </select>
+                    </div>
+                    <div class="form-cell">
+                        <button class="btn btn-primary" type="submit"> Search </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
     </body>
 <%- include("partials/footer") -%>
