@@ -1,13 +1,24 @@
 <%- include("partials/header") -%>
     <body>
         <h1> Weather Report </h1>
-        <h2> City: <%= cityName %> </h2>
-        <h3> Country: <%= countryName %> </h3>
-        <h3> Current Temperature: <%= currentTemp %> <%= tempUnit %> </h3>
-        <h3> Feels Like: <%= feelsLike %> <%= tempUnit %> </h3>
-        <h3> Minimum Temperature: <%= minTemp %> <%= tempUnit %> </h3>
-        <h3> Maximum Temperature: <%= maxTemp %> <%= tempUnit %> </h3>
-        <h3> Humidity: <%= (humidity) %> % </h3>
-        <h3> Weather Description: <%= weatherDescription %> </h3>
+
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title"> <%= cityName %>, <%= countryName %> </h3>
+                        <p class="card-text"> Current Temperature: <%= currentTemp %> <%= tempUnit %> </p>
+                        <p class="card-text"> Feels Like: <%= feelsLike %> <%= tempUnit %> </p>
+                        <p class="card-text"> Minimum Temperature: <%= minTemp %> <%= tempUnit %> </p>
+                        <p class="card-text"> Maximum Temperature: <%= maxTemp %> <%= tempUnit %> </p>
+                        <p class="card-text"> Humidity: <%= (humidity) %> % </p>
+                        <p class="card-text"> Weather Description: <%= weatherDescription %> </p>
+                </div>
+              </div>
+            </div>
+        </div>
     </body>
 <%- include("partials/footer") -%>
