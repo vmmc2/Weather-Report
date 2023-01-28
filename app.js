@@ -23,6 +23,7 @@ app.get("/city", function(req, res){
 app.post("/city", function(req, res){
     const city = req.body.city;
     const temperatureMode = req.body.units;
+    const temperatureUnit = temperatureMode === "metric" ? "°C" : "°F";
     
     const geocoderUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
 
@@ -44,12 +45,13 @@ app.post("/city", function(req, res){
                     const weatherData = JSON.parse(data);
 
                     const weatherReport = {
-                        "cityName" : weatherData["name"],
+                        "cityName" : city,
                         "countryName" : weatherData["sys"]["country"],
                         "currentTemp" : weatherData["main"]["temp"],
                         "feelsLike" : weatherData["main"]["feels_like"],
                         "minTemp" : weatherData["main"]["temp_min"],
                         "maxTemp" : weatherData["main"]["temp_max"],
+                        "tempUnit" : temperatureUnit,
                         "humidity" : weatherData["main"]["humidity"],
                         "weatherIcon" : weatherData["weather"][0]["icon"],
                         "weatherDescription" : weatherData["weather"][0]["main"]

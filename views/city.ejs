@@ -1,5 +1,13 @@
 <%- include("partials/header") -%>
     <body>
-        <h1> City name goes here... </h1>
+        <h1> Weather Report </h1>
+        <h2> City: <%= cityName %> </h2>
+        <h3> Country: <%= countryName %> </h3>
+        <h3> Current Temperature: <%= currentTemp %> <%= tempUnit %> </h3>
+        <h3> Feels Like: <%= feelsLike %> <%= tempUnit %> </h3>
+        <h3> Minimum Temperature: <%= minTemp %> <%= tempUnit %> </h3>
+        <h3> Maximum Temperature: <%= maxTemp %> <%= tempUnit %> </h3>
+        <h3> Humidity: <%= (humidity) %> % </h3>
+        <h3> Weather Description: <%= weatherDescription %> </h3>
     </body>
 <%- include("partials/footer") -%>
